@@ -1,0 +1,76 @@
+﻿@model AgendaSecretario.Models.Agenda
+
+@{
+
+    ViewData["Title"] = "Añadir Registro";
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <h4>Añadir Nuevo Municipios</h4>
+        <hr>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="AgendaTitulo" class="control-label">Nombre del Municipio</label>
+                        <input asp-for="AgendaTitulo" class="form-control" placeholder="Municipio" required />
+                        <span asp-validation-for="AgendaTitulo" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="AgendaMunicipio" class="control-label">Nombre del Municipio</label>
+                        <input asp-for="AgendaMunicipio" class="form-control" placeholder="Municipio" required />
+                        <span asp-validation-for="AgendaMunicipio" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="AgendaFecha" class="control-label">Nombre del Municipio</label>
+                        <input type="date" asp-for="AgendaFecha" class="form-control" placeholder="Municipio" required />
+                        <span asp-validation-for="AgendaFecha" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="AgendaUrl" class="control-label">Nombre del Municipio</label>
+                        <input type="text" asp-for="AgendaUrl" class="form-control" placeholder="Municipio" required />
+                        <span asp-validation-for="AgendaUrl" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                            <a class="btn btn-danger" asp-action="Index"><i class="fa-solid fa-angle-left"></i> Regresar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa-solid fa-floppy-disk"></i> Guardar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
