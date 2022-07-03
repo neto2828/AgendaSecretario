@@ -1,5 +1,6 @@
 ﻿using System;
 using AgendaSecretario.Models;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace AgendaSecretario.Class
@@ -26,7 +27,9 @@ namespace AgendaSecretario.Class
 
         public List<Agenda> GetAllAgenda()
         {
-            throw new NotImplementedException();
+            var query = Collection.
+                            Find(new BsonDocument()).ToListAsync();
+            return query.Result; throw new NotImplementedException();
         }
 
         public void InsertAgenda(Agenda agenda)

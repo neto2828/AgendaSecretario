@@ -15,7 +15,8 @@ namespace AgendaSecretario.Controllers
         //GET Agenda
         public ActionResult Index()
         {
-            return View();
+            var agenda = db.GetAllAgenda()
+;            return View(agenda);
         }
 
         //GET Datails
@@ -43,17 +44,20 @@ namespace AgendaSecretario.Controllers
                 {
                     AgendaTitulo = collection["AgendaTitulo"],
                     AgendaMunicipio = collection["AgendaMunicipio"],
-                    AgendaFecha = DateTime.Parse(collection["AgendaFecha"]),
-                    AgendaUrl = collection["AgendaUrl"]
+                    AgendaFecha = collection["AgendaFecha"],
+                    AgendaUrl = collection["AgendaUrl"],
+                    AgendaCuenta = collection["AgendaCuenta"]
 
                 };
 
                 db.InsertAgenda(agenda);
-                return RedirectToAction(nameof(Index));
+                TempData["success"] = "El Registro " + "se ha guardado con Éxito";
+                return RedirectToAction(nameof(Create));
             }
 
             catch
             {
+                TempData["danger"] = "El registro " + "no se pudo guardar, intentelo de nuevo";
                 return View();
             }
         }

@@ -12,7 +12,8 @@ namespace AgendaSecretario.Models
         public ObjectId Id { get; set; }
         public string AgendaTitulo { get; set; }
         public string AgendaMunicipio { get; set; }
-        public DateTime AgendaFecha { get; set; }
+        public string AgendaFecha { get; set; }
+        public string AgendaCuenta { get; set; }
         public string AgendaUrl { get; set; }
         public string AgendaEstatus { get; set; }
         public string AgendaEmbedded { get; set; }

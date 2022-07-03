@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<AgendaSecretario.Models.Agenda>
+
 @{
 
     ViewData["Title"] = "Registros";
@@ -7,9 +8,51 @@
 
 <div class="card">
     <div class="card-body">
-        <h4>Añadir Nuevo Municipios</h4>
+        <a class="btn btn-primary" asp-controller="Agenda" asp-action="Create"><i class="fa-solid fa-plus"></i> Nuevo Registro</a>
         <hr>
-        
+        <table id="example" class="table table-striped table-hover table-responsive" style="width:100%">
+            <thead>
+                <tr>
+                    <th class="text-center">Titulo</th>
+                    <th class="text-center">Municipio</th>
+                    <th class="text-center">Fecha</th>
+                    <th class="text-center">Enlace</th>
+                    <th class="text-center">Cuenta</th>
+                    <th class="text-center">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr class="text-center">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AgendaTitulo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AgendaMunicipio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AgendaFecha)
+                    </td>
+                    <td>
+                        <a href="@Html.DisplayFor(modelItem => item.AgendaUrl)" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AgendaCuenta)
+                    </td>
+
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+
+                            <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.Id"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.Id"><i class="fa-solid fa-circle-info"></i></a>
+                            <a class="btn btn-danger btn-sm" asp-action="delete" asp-route-id="@item.Id"><i class="fa-solid fa-trash-can"></i></a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
 
 
     </div>
