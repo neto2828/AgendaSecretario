@@ -7,7 +7,7 @@ namespace AgendaSecretario.Class
     {
         void InsertAgenda(Agenda agenda);
         void UpdateAgenda(Agenda agenda);
-        void DeleteAgenda(Agenda agenda);
+        void DeleteAgenda(String id);
         List<Agenda> GetAllAgenda();
         Agenda GetAgendaById(string id);
     }

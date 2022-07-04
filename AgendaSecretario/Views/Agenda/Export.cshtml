@@ -1,0 +1,61 @@
+@model IEnumerable<AgendaSecretario.Models.Agenda>
+
+@{
+
+    ViewData["Title"] = "Exportar";
+}
+
+
+@{
+    Layout = null;
+}
+
+
+var aditionalData = {
+  "Inauguración de la Planta Potabilizadora Iturbe": "Tula de Allende"
+}
+<br>
+
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      plugins: [ 'interaction', 'dayGrid' ],
+      header: {
+        left: 'prevYear,prev,next,nextYear today',
+        center: 'title',
+        right: 'dayGridMonth,dayGridWeek,dayGridDay'
+      },
+      defaultDate: '2022-06-01',
+      locale: 'es',
+      navLinks: true, 
+      editable: false,
+      eventLimit: true, 
+      events: [
+
+@foreach (var item in Model)
+{
+
+    <text>{ title: '</text>@Html.DisplayFor(modelItem => item.AgendaTitulo)
+    <text>',id: '</text>@Html.DisplayFor(modelItem => item.AgendaMunicipio)
+    <text>',url: '</text>@Html.DisplayFor(modelItem => item.AgendaEmbedded)
+    <text>',start: '</text>@Html.DisplayFor(modelItem => item.AgendaFecha)
+    <text>'},</text>
+
+
+
+}
+
+
+      ],
+      eventClick: function(item){
+        item.jsEvent.preventDefault();
+        console.log(item);
+        $("#exampleModal").modal("show");
+        $("#titulo").text(item.event.title);
+        $("#lugar").text(item.event.id);
+        $("#url").attr("src",item.event.url);
+      }
+
+    });
+    calendar.render();
+  });

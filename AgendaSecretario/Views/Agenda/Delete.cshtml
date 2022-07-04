@@ -1,0 +1,72 @@
+
+@model AgendaSecretario.Models.Agenda
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4>¿Desea eliminar el registro de @Html.ViewData.Model.AgendaTitulo?</h4>
+        <p>Este proceso será irreversible</p>
+        <div class="row">
+            <hr />
+
+            <div class="col-md-12">
+                <form asp-action="delete">
+
+                    <div class="row">
+                            <div class="col-md-12 align-self-center">
+                                <table class="table table-responsive table-hover text-center">
+                                    <tbody>
+                                        <tr>
+                                            <td><b>Título: </b></td>
+                                            <td>@Html.ViewData.Model.AgendaTitulo</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Municipio: </b></td>
+                                            <td>@Html.ViewData.Model.AgendaMunicipio</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Fecha del Evento: </b></td>
+                                            <td>@Html.ViewData.Model.AgendaFecha</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Cuenta: </b></td>
+                                            <td>@Html.ViewData.Model.AgendaCuenta</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>URL: </b></td>
+                                            <td><a href="@Html.ViewData.Model.AgendaUrl" target="_blank"><i class="fa-brands fa-facebook-square"></i></a></td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                    </div>
+                    <hr />
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                    <a class="btn btn-danger" asp-action="Index"><i class="fa-solid fa-angle-left"></i> Regresar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button type="submit" value="Delete" class="btn btn-warning">
+                                        <i class="fa-solid fa-trash-can"></i> Eliminar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

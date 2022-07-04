@@ -20,7 +20,7 @@
 
         @if (TempData["danger"] != null)
         {
-            <div class="alert alert-danger alert-dismissible">
+            <div class="alert alert-warning alert-dismissible">
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 <strong>Error!</strong> @TempData["danger"]
             </div>
@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <label asp-for="AgendaMunicipio" class="control-label">Municipio</label>
                         <select asp-for="AgendaMunicipio" class="form-select" required>
-                            <option selected value=''>Seleccione un Municipio'</option>'
+                            <option selected value=''>Seleccione un Municipio</option>'
                             <option value='Acatlán'>Acatlán</option>
                             <option value='Acaxochitlán'>Acaxochitlán</option>
                             <option value='Actopan'>Actopan</option>
@@ -141,12 +141,21 @@
                     </div>
                 </div>
 
-                <div class="col-md-6" >
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AgendaUrl" class="control-label">URL Facebook</label>
+                        <input type="text" asp-for="AgendaUrl" id="url" onkeyup="add();" class="form-control" placeholder="URL Facebook" required />
+                        <span asp-validation-for="AgendaUrl" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
                     <div class="form-group">
                         <label asp-for="AgendaCuenta" class="control-label">Nombre de la Cuenta</label>
-                        <select asp-for="AgendaCuenta" class="form-select" required>
-                            <option selected value="SEDAGROH">SEDAGROH</option>
-                            <option value="CARLOSMUÑIZ">Carlos Muñiz</option>
+                        <select asp-for="AgendaCuenta" class="form-select" onkeyup="add();" id="selectTab2Gestion" required>
+                            <option value="">Seleccione una Cuenta...</option>
+                            <option value="HIDALGO.SEDAGRO">SEDAGROH</option>
+                            <option value="carlosmunizrodriguez1">Carlos Muñiz</option>
                         </select>
                         <span asp-validation-for="AgendaCuenta" class="text-danger"></span>
                     </div>
@@ -154,9 +163,8 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label asp-for="AgendaUrl" class="control-label">URL Facebook</label>
-                        <input type="text" asp-for="AgendaUrl" class="form-control" placeholder="URL Facebook" required />
-                        <span asp-validation-for="AgendaUrl" class="text-danger"></span>
+                        <input type="hidden" asp-for="AgendaPost" id="showId" class="entrada-usuario" />
+                        <span asp-validation-for="AgendaPost" class="text-danger"></span>
                     </div>
                 </div>
 

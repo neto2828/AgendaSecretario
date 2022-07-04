@@ -15,14 +15,18 @@ namespace AgendaSecretario.Class
             Collection = _repository.db.GetCollection<Agenda>("Agenda");
         }
 
-        public void DeleteAgenda(Agenda agenda)
+        public void DeleteAgenda(string id)
         {
-            throw new NotImplementedException();
+            var filter = Builders<Agenda>.Filter.Eq(s => s.Id, new ObjectId(id));
+            Collection.DeleteOneAsync(filter);
         }
 
         public Agenda GetAgendaById(string id)
         {
-            throw new NotImplementedException();
+            var agenda = Collection.Find(
+                new BsonDocument { { "_id", new ObjectId(id) } }).FirstAsync().Result;
+
+            return agenda;
         }
 
         public List<Agenda> GetAllAgenda()
