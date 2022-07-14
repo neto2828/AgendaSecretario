@@ -49,6 +49,7 @@ namespace AgendaSecretario.Controllers
             {
                 var agenda = new Agenda()
                 {
+                    AgendaEstatus = collection["AgendaEstatus"],
                     AgendaTitulo = collection["AgendaTitulo"],
                     AgendaMunicipio = collection["AgendaMunicipio"],
                     AgendaFecha = collection["AgendaFecha"],

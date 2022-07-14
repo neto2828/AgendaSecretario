@@ -31,6 +31,7 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
+                <input type="hidden" asp-for="AgendaEstatus" value="Pendiente" required />
                 <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="AgendaTitulo" class="control-label">Título de Registro</label>
