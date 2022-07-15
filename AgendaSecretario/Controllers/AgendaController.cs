@@ -97,6 +97,32 @@ namespace AgendaSecretario.Controllers
                 return View();
             }
         }
+
+        // GET: AgendaController/Publicado/5
+        public ActionResult Publicado(string id)
+        {
+            var agenda = db.GetAgendaById(id);
+            return View(agenda);
+        }
+
+        // POST: AgendaController/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Publicado(string id, IFormCollection collection)
+        {
+            try
+            {
+                db.PublishAgenda(id);
+                TempData["success"] = "El registro " + "se ha publicado con Éxito";
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                TempData["danger"] = "El registro " + "no se pudo publicar, intentelo de nuevo";
+                return View();
+            }
+        }
     }
 }
 

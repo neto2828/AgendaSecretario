@@ -45,6 +45,13 @@ namespace AgendaSecretario.Class
         {
             throw new NotImplementedException();
         }
+
+        public void PublishAgenda(string id)
+        {
+            var filter = Builders<Agenda>.Filter.Eq(s => s.Id, new ObjectId(id));
+            //Collection.DeleteOneAsync(filter);
+            //Collection.UpdateOneAsync();
+        }
     }
 }
 
