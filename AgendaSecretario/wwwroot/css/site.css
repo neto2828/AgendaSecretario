@@ -18,7 +18,23 @@ body {
 }
 
 
-footer {
+.footer {
+    margin-top:20%;
     background-color: #092432;
     color: #FFF;
+    height:110px;
+}
+
+.logo-hidalgo {
+    margin: 0 auto;
+    display: block;
+ 
+    width: 20%
+}
+
+@media (max-width: 758px) {
+    .logo-hidalgo {
+        margin-top: 30px;
+        width: 30%;
+    }
 }
