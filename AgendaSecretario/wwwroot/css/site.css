@@ -18,23 +18,41 @@ body {
 }
 
 
-.footer {
-    margin-top:20%;
+footer {     
+    position: absolute;    
+    margin-left: auto;
+    width:100%;    
     background-color: #092432;
-    color: #FFF;
-    height:110px;
+}
+
+.copy{
+    color:#ffffff !important; 
+    font-weight: bold;
 }
 
 .logo-hidalgo {
     margin: 0 auto;
     display: block;
- 
     width: 20%
 }
+
+.nav-link {
+    color: #ffffff;
+    font-size: 15px;
+}
+
 
 @media (max-width: 758px) {
     .logo-hidalgo {
         margin-top: 30px;
         width: 30%;
     }
+}
+
+.navbar {
+    background-color: #092432 !important;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
 }

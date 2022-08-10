@@ -1,0 +1,200 @@
+﻿@model AgendaSecretario.Models.Agenda
+
+@{
+
+    ViewData["Title"] = "Editar Registro";
+}
+
+
+
+<div class="card">
+    <div class="card-body">
+
+        @if (TempData["success"] != null)
+        {
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Guardado!</strong> @TempData["success"]
+            </div>
+        }
+
+        @if (TempData["danger"] != null)
+        {
+            <div class="alert alert-warning alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Error!</strong> @TempData["danger"]
+            </div>
+        }
+
+        <h4>Editar Registro</h4>
+        <hr>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <input type="hidden" asp-for="AgendaEstatus" value="Pendiente" required />
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="AgendaTitulo" class="control-label">Título de Registro</label>
+                        <input asp-for="AgendaTitulo" class="form-control" placeholder="Título de Registro" required />
+                        <span asp-validation-for="AgendaTitulo" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="AgendaMunicipio" class="control-label">Municipio</label>
+                        <select asp-for="AgendaMunicipio" class="form-select" required>
+                            <option value=''>Seleccione un Municipio</option>'
+                            <option value='Acatlán'>Acatlán</option>
+                            <option value='Acaxochitlán'>Acaxochitlán</option>
+                            <option value='Actopan'>Actopan</option>
+                            <option value='Agua Blanca de Iturbide'>Agua Blanca de Iturbide</option>
+                            <option value='Ajacuba'>Ajacuba</option>
+                            <option value='Alfajayucan'>Alfajayucan</option>
+                            <option value='Almoloya'>Almoloya</option>
+                            <option value='Apan'>Apan</option>
+                            <option value='Atitalaquia'>Atitalaquia</option>
+                            <option value='Atlapexco'>Atlapexco</option>
+                            <option value='Atotonilco de Tula'>Atotonilco de Tula</option>
+                            <option value='Atotonilco el Grande'>Atotonilco el Grande</option>
+                            <option value='Calnali'>Calnali</option>
+                            <option value='Cardonal'>Cardonal</option>
+                            <option value='Chapantongo'>Chapantongo</option>
+                            <option value='Chapulhuacán'>Chapulhuacán</option>
+                            <option value='Chilcuautla'>Chilcuautla</option>
+                            <option value='Cuautepec de Hinojosa'>Cuautepec de Hinojosa</option>
+                            <option value='El Arenal'>El Arenal</option>
+                            <option value='Eloxochitlán'>Eloxochitlán</option>
+                            <option value='Emiliano Zapata'>Emiliano Zapata</option>
+                            <option value='Epazoyucan'>Epazoyucan</option>
+                            <option value='Francisco I. Madero'>Francisco I. Madero</option>
+                            <option value='Huasca de Ocampo'>Huasca de Ocampo</option>
+                            <option value='Huautla'>Huautla</option>
+                            <option value='Huazalingo'>Huazalingo</option>
+                            <option value='Huehuetla'>Huehuetla</option>
+                            <option value='Huejutla de Reyes'>Huejutla de Reyes</option>
+                            <option value='Huichapan'>Huichapan</option>
+                            <option value='Ixmiquilpan'>Ixmiquilpan</option>
+                            <option value='Jacala de Ledezma'>Jacala de Ledezma</option>
+                            <option value='Jaltocán'>Jaltocán</option>
+                            <option value='Juárez Hidalgo'>Juárez Hidalgo</option>
+                            <option value='La Misión'>La Misión</option>
+                            <option value='Lolotla'>Lolotla</option>
+                            <option value='Metepec'>Metepec</option>
+                            <option value='Metztitlán'>Metztitlán</option>
+                            <option value='Mineral de la Reforma'>Mineral de la Reforma</option>
+                            <option value='Mineral del Chico'>Mineral del Chico</option>
+                            <option value='Mineral del Monte'>Mineral del Monte</option>
+                            <option value='Mixquiahuala de Juárez'>Mixquiahuala de Juárez</option>
+                            <option value='Molango de Escamilla'>Molango de Escamilla</option>
+                            <option value='Nicolás Flores'>Nicolás Flores</option>
+                            <option value='Nopala de Villagrán'>Nopala de Villagrán</option>
+                            <option value='Omitlán de Juárez'>Omitlán de Juárez</option>
+                            <option value='Pachuca de Soto'>Pachuca de Soto</option>
+                            <option value='Pacula'>Pacula</option>
+                            <option value='Pisaflores'>Pisaflores</option>
+                            <option value='Progreso de Obregón'>Progreso de Obregón</option>
+                            <option value='San Agustín Metzquititlán'>San Agustín Metzquititlán</option>
+                            <option value='San Agustín Tlaxiaca'>San Agustín Tlaxiaca</option>
+                            <option value='San Bartolo Tutotepec'>San Bartolo Tutotepec</option>
+                            <option value='San Felipe Orizatlán'>San Felipe Orizatlán</option>
+                            <option value='San Salvador'>San Salvador</option>
+                            <option value='Santiago de Anaya'>Santiago de Anaya</option>
+                            <option value='Santiago Tulantepec de Lugo Guerrero'>Santiago Tulantepec de Lugo Guerrero</option>
+                            <option value='Singuilucan'>Singuilucan</option>
+                            <option value='Tasquillo'>Tasquillo</option>
+                            <option value='Tecozautla'>Tecozautla</option>
+                            <option value='Tenango de Doria'>Tenango de Doria</option>
+                            <option value='Tepeapulco'>Tepeapulco</option>
+                            <option value='Tepehuacán de Guerrero'>Tepehuacán de Guerrero</option>
+                            <option value='Tepeji del Río de Ocampo'>Tepeji del Río de Ocampo</option>
+                            <option value='Tepetitlán'>Tepetitlán</option>
+                            <option value='Tetepango'>Tetepango</option>
+                            <option value='Tezontepec de Aldama'>Tezontepec de Aldama</option>
+                            <option value='Tianguistengo'>Tianguistengo</option>
+                            <option value='Tizayuca'>Tizayuca</option>
+                            <option value='Tlahuelilpan'>Tlahuelilpan</option>
+                            <option value='Tlahuiltepa'>Tlahuiltepa</option>
+                            <option value='Tlanalapa'>Tlanalapa</option>
+                            <option value='Tlanchinol'>Tlanchinol</option>
+                            <option value='Tlaxcoapan'>Tlaxcoapan</option>
+                            <option value='Tolcayuca'>Tolcayuca</option>
+                            <option value='Tula de Allende'>Tula de Allende</option>
+                            <option value='Tulancingo de Bravo'>Tulancingo de Bravo</option>
+                            <option value='Villa de Tezontepec'>Villa de Tezontepec</option>
+                            <option value='Xochiatipan'>Xochiatipan</option>
+                            <option value='Xochicoatlán'>Xochicoatlán</option>
+                            <option value='Yahualica'>Yahualica</option>
+                            <option value='Zacualtipán de Ángeles'>Zacualtipán de Ángeles</option>
+                            <option value='Zapotlán de Juárez'>Zapotlán de Juárez</option>
+                            <option value='Zempoala'>Zempoala</option>
+                            <option value='Zimapán'>Zimapán</option>
+                        </select>
+                        <span asp-validation-for="AgendaMunicipio" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="AgendaFecha" class="control-label">Fecha del Evento</label>
+                        <input type="date" asp-for="AgendaFecha" class="form-control" placeholder="Fecha Evento" required />
+                        <span asp-validation-for="AgendaFecha" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AgendaUrl" class="control-label">URL Facebook</label>
+                        <input type="text" asp-for="AgendaUrl" id="url" onkeyup="add();" class="form-control" placeholder="URL Facebook" required />
+                        <span asp-validation-for="AgendaUrl" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AgendaCuenta" class="control-label">Nombre de la Cuenta</label>
+                        <select asp-for="AgendaCuenta" class="form-select" onkeyup="add();" id="selectTab2Gestion" required>
+                            <option value="">Seleccione una Cuenta...</option>
+                            <option value="HIDALGO.SEDAGRO">SEDAGROH</option>
+                            <option value="carlosmunizrodriguez1">Carlos Muñiz</option>
+                        </select>
+                        <span asp-validation-for="AgendaCuenta" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="hidden" asp-for="AgendaPost" id="showId" class="entrada-usuario" />
+                        <span asp-validation-for="AgendaPost" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                            <a class="btn btn-danger" asp-action="Index"><i class="fa-solid fa-angle-left"></i> Regresar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa-solid fa-floppy-disk"></i> Guardar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

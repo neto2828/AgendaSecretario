@@ -43,7 +43,10 @@ namespace AgendaSecretario.Class
 
         public void UpdateAgenda(Agenda agenda)
         {
-            throw new NotImplementedException();
+            var filter = Builders<Agenda>
+                .Filter
+                .Eq(s => s.Id, agenda.Id);
+            Collection.ReplaceOneAsync(filter, agenda);
         }
 
         public void PublishAgenda(string id)
