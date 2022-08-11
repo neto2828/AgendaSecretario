@@ -55,6 +55,16 @@ namespace AgendaSecretario.Class
             //Collection.DeleteOneAsync(filter);
             //Collection.UpdateOneAsync();
         }
+
+        public void Publicado(Agenda agenda)
+        {
+            var filter = Builders<Agenda>
+    .Filter
+    .Eq(s => s.Id, agenda.Id);
+            Collection.ReplaceOneAsync(filter, agenda); //ReplaceOneAsync(filter, agenda);
+
+        }
+
     }
 }
 

@@ -11,6 +11,7 @@ namespace AgendaSecretario.Class
         void PublishAgenda(String id);
         List<Agenda> GetAllAgenda();
         Agenda GetAgendaById(string id);
+        void Publicado(Agenda agenda);
     }
 }
 
